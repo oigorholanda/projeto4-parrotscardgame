@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EEF9BF;
+}
+
+.titulo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    font-size: 56px;
+    text-align: center;
+    color: #75B79E;
+    margin: 2%;
+}
+
+.container {
+    background-color: lightblue;
+    width: 802px;
+    height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.botao {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button {
+    
+    font-size: 30px;
+    border: 2px solid #5C913B;
+}
+
+
+li {
+    float:left;
+    margin: 5px;
+}
+
+
+.carta {
+    background-color: #A7E9AF;
+    width: 117px;
+    height: 146px;
+    position: relative;
+    border: 1px solid #99CEA8;
+    border-radius: 6px;
+}
+
+.carta img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 24px;
+    left: 10px;
+}
+
+.clicada img {
+    filter:invert(20%)
+}
+
+.clicada {
+    background-color: #EA596E;
+    
+}
