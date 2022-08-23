@@ -12,6 +12,7 @@ body {
     line-height: 66px;
     letter-spacing: -0.004em;
     font-size: 56px;
+    
     text-align: center;
     color: #75B79E;
     margin: 2%;
@@ -19,8 +20,10 @@ body {
 
 .container {
     background-color: lightblue;
-    width: 802px;
-    height: 500px;
+    width: 60%;
+    min-height: 40%;
+    height: auto;
+    border-radius: 20px;
     margin: 20px auto;
     padding: 20px;
     text-align: center;
@@ -32,15 +35,27 @@ body {
 }
 
 button {
-    
+    border-radius: 10px;
     font-size: 30px;
-    border: 2px solid #5C913B;
+    border: 2px solid #5C913B;    
 }
 
+button:hover {
+    background-color: #EEF9BF;
+    cursor: pointer;
+}
 
-li {
-    float:left;
-    margin: 5px;
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    
+    width: 130px;
+    height: 160px;
+    position: relative;
 }
 
 
@@ -48,24 +63,46 @@ li {
     background-color: #A7E9AF;
     width: 117px;
     height: 146px;
-    position: relative;
     border: 1px solid #99CEA8;
-    border-radius: 6px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
 }
 
 .carta img {
     width: 100px;
     height: 100px;
-    position: absolute;
-    top: 24px;
-    left: 10px;
+}
+
+.carta:hover {
+    cursor: pointer;
+}
+
+.frente {
+    transform: rotateY(180deg);
+}
+
+.frente img {
+    width: 90px;
+    height: 90px;
+
 }
 
 .clicada img {
     filter:invert(20%)
 }
 
-.clicada {
-    background-color: #EA596E;
+.clicada .carta {
+    transform: rotateY(-180deg);
     
+}
+
+.clicada .frente {
+    transform: rotateY(0deg)
 }

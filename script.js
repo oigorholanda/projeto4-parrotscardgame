@@ -1,34 +1,112 @@
-//Perguntar e armazenar o numero de cartas
-function iniciarJogo() {
-let quantidade = prompt('Escolha uma quantidade par de cartas (2-14)');
+const gifs = [0,0,1,1,2,2,3,3,4,4,5,5,6,6];
+let numCartas = 1;
+let cliques = 0;
+let indice1;
+let indice2;
+let primeiraCarta;
+let segundaCarta;
+let acertos = 0;
 
-//Armazenar o elemento lista na variavel modif
-const modif = document.querySelector('.lista');
-modif.innerHTML = "";
-//Imprimir a lista com todas tarefas
-    for (let i=0; i<quantidade; i++) {
-    modif.innerHTML = modif.innerHTML + `
+
+//Perguntar e gerar o numero de cartas
+function iniciarJogo() {
+    while ((numCartas%2!=0 || numCartas<4 || numCartas >14)) {
+        numCartas = prompt('Escolha uma quantidade PAR de cartas entre 4 e 14');
+    }
+    gifs.length = numCartas;
+    //Embaralhar os gifs
+    gifs.sort(comparador);
+    //Armazenar o elemento lista na variavel lista e limpa o html da lista
+    const lista = document.querySelector('.lista');
+    lista.innerHTML = "";
+
+    //Insere as cartas formatadas com gifs 2 a 2
+    for (let i=0; i<numCartas; i++) {
+    lista.innerHTML += `
     <li onclick="FazerAcao(this)">
-    <div class="carta">
-        <img src="/img/front.png">
+    <div id=${gifs[i]} class="card">
+        <div class="carta">
+            <img src="/img/front.png" alt="">
+        </div>
+        <div class="frente carta">
+            <img src="/gif/${gifs[i]}.gif" alt="">
+        </div>
     </div>
-    </li>
+    </li> 
     `;
     }
 }
 
-//Marcar ou desmarcar a carta clicada
-function FazerAcao (item) {
-    item.classList.toggle('clicada');
+// Função para o embaralhador
+function comparador() { 
+	return Math.random() - 0.5; 
 }
 
-// const itemPai = item.parentNode;
-// itemPai.classList.toggle('verde');
+//Virar a carta clicada e armazenar ID
+function FazerAcao (item) {
+    cliques ++;
+    
+    if (item.classList.contains('.clicada')) {
+        return;
+    }
 
+     if (primeiraCarta === undefined) {
+        primeiraCarta = item;
+        indice1 = item.querySelector('div').id;
+        item.classList.add('clicada');
+        console.log(indice1);
 
-//const lista = [];
+    } else if (segundaCarta === undefined) {
+        segundaCarta = item
+        indice2 = item.querySelector('div').id;
+        item.classList.add('clicada');
+        console.log(indice2);
 
+        compararCartas();
+    } 
+}
 
-// for (let i=0; i<x; i++) {
-//     lista[i] = prompt('Digite a tarefa');
-// }
+//Compara os cards e define o acerto ou reset
+function compararCartas() {
+    if (indice1 === indice2) {
+        console.log('Acertou');
+
+        contadorDeAcertos ();
+
+    } else {
+        console.log('Errou');
+
+        setTimeout(removerClasse, 1500);
+    }
+}
+
+//Desvira o card em caso de erro
+function removerClasse () {
+    primeiraCarta.classList.remove('clicada');
+    segundaCarta.classList.remove('clicada');
+    primeiraCarta = undefined;
+    segundaCarta = undefined;
+}
+
+//Conta os acertos e finaliza o jogo
+function contadorDeAcertos () {
+    acertos++;
+    primeiraCarta = undefined;
+    segundaCarta = undefined;
+
+    if (acertos >= numCartas/2) {
+        setTimeout (finalizarJogo, 1000)
+    }
+}
+    
+    
+function finalizarJogo () {
+    alert(`
+Yaay, você ganhou com ${cliques} cliques, parabéns!
+
+Veja como os parrots estão felizes xD`);
+
+    if (confirm("Deseja jogar novamente?")) {
+        window.location.reload(); 
+    }
+}
