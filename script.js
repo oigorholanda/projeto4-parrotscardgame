@@ -1,4 +1,4 @@
-const gifs = [0,0,1,1,2,2,3,3,4,4,5,5,6,6];
+const gifs = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
 let numCartas = 1;
 let cliques = 0;
 let indice1;
@@ -10,9 +10,10 @@ let acertos = 0;
 
 //Perguntar e gerar o numero de cartas
 function iniciarJogo() {
-    while ((numCartas%2!=0 || numCartas<4 || numCartas >14)) {
-        numCartas = prompt('Escolha uma quantidade PAR de cartas entre 4 e 14');
+    while ((numCartas%2 !== 0 || numCartas < 4 || numCartas > 20)) {
+        numCartas = prompt('Escolha uma quantidade PAR de cartas entre 4 e 20');
     }
+    //Igualar os gifs ao numero de cartas
     gifs.length = numCartas;
     //Embaralhar os gifs
     gifs.sort(comparador);
@@ -42,15 +43,13 @@ function comparador() {
 	return Math.random() - 0.5; 
 }
 
-//Virar a carta clicada e armazenar ID
+//Virar somente a carta clicada e armazenar ID
 function FazerAcao (item) {
-    cliques ++;
     
-    if (item.classList.contains('.clicada')) {
+    if (item.classList.contains('clicada')) {
         return;
-    }
 
-     if (primeiraCarta === undefined) {
+    } else if (primeiraCarta === undefined) {
         primeiraCarta = item;
         indice1 = item.querySelector('div').id;
         item.classList.add('clicada');
@@ -68,6 +67,7 @@ function FazerAcao (item) {
 
 //Compara os cards e define o acerto ou reset
 function compararCartas() {
+    cliques ++;
     if (indice1 === indice2) {
         console.log('Acertou');
 
@@ -102,7 +102,7 @@ function contadorDeAcertos () {
     
 function finalizarJogo () {
     alert(`
-Yaay, você ganhou com ${cliques} cliques, parabéns!
+Yaay, você ganhou com ${cliques} jogadas, parabéns!
 
 Veja como os parrots estão felizes xD`);
 
