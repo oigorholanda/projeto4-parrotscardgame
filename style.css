@@ -12,10 +12,19 @@ body {
     line-height: 66px;
     letter-spacing: -0.004em;
     font-size: 56px;
-    
     text-align: center;
     color: #75B79E;
     margin: 2%;
+}
+
+.cronometro {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    position: absolute;
+    top: -20px;
+    right: 15px;
+    margin: 3px;
 }
 
 .container {
@@ -27,6 +36,7 @@ body {
     margin: 20px auto;
     padding: 20px;
     text-align: center;
+    position: relative;
 }
 
 .botao {
@@ -37,7 +47,7 @@ body {
 button {
     border-radius: 10px;
     font-size: 30px;
-    border: 2px solid #5C913B;    
+    border: 2px solid #5C913B;
 }
 
 button:hover {
@@ -52,10 +62,10 @@ ul {
 }
 
 .card {
-    
-    width: 130px;
-    height: 160px;
+    width: 120px;
+    height: 150px;
     position: relative;
+    margin: 5px;
 }
 
 
@@ -65,7 +75,7 @@ ul {
     height: 146px;
     border: 1px solid #99CEA8;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,16 +101,14 @@ ul {
 .frente img {
     width: 90px;
     height: 90px;
-
 }
 
 .clicada img {
-    filter:invert(20%)
+    filter: invert(20%)
 }
 
 .clicada .carta {
     transform: rotateY(-180deg);
-    
 }
 
 .clicada .frente {
