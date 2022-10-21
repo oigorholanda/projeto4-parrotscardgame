@@ -51,16 +51,15 @@ function iniciaCronometro() {
     Cronid = setInterval(atualizaCronometro, 1000);
 }
 
-function atualizaCronometro(){
-    const cron = document.querySelector('.cronometro') 
+function atualizaCronometro() {
+    const cron = document.querySelector('.cronometro')
     cron.innerHTML = `${temp++}s`;
 }
 
 
-
 //Virar somente a carta clicada e armazenar ID
 function FazerAcao(item) {
-    
+
     if (item.classList.contains('clicada')) {
         return;
 
@@ -117,11 +116,10 @@ function contadorDeAcertos() {
 }
 
 function finalizarJogo() {
-    
     alert(`
 Yaay, você ganhou com ${cliques} jogadas e ${temp} segundos, parabéns!
 
-Veja como os parrots estão felizes... 🦜🎉`);
+Veja como os papagaios estão felizes... 🦜🎉`);
 
     if (confirm("Deseja jogar novamente?")) {
         window.location.reload();
