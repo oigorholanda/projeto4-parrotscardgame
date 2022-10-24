@@ -39,11 +39,6 @@ body {
     position: relative;
 }
 
-.botao {
-    display: inline-block;
-    vertical-align: middle;
-}
-
 button {
     border-radius: 10px;
     font-size: 30px;
@@ -104,7 +99,7 @@ ul {
 }
 
 .clicada img {
-    filter: invert(20%)
+    filter: invert(20%);
 }
 
 .clicada .carta {
@@ -112,5 +107,5 @@ ul {
 }
 
 .clicada .frente {
-    transform: rotateY(0deg)
+    transform: rotateY(0deg);
 }

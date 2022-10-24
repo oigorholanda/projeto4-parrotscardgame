@@ -27,12 +27,12 @@ function iniciarJogo() {
     //Insere as cartas formatadas com gifs 2 a 2
     for (let i = 0; i < numCartas; i++) {
         lista.innerHTML += `
-    <li onclick="FazerAcao(this)">
+    <li onclick="virarCarta(this)">
     <div id=${gifs[i]} class="card">
         <div class="carta">
             <img src="./img/front.png" alt="">
         </div>
-        <div class="frente carta">
+        <div class="carta frente">
             <img src="./gif/${gifs[i]}.gif" alt="">
         </div>
     </div>
@@ -58,7 +58,7 @@ function atualizaCronometro() {
 
 
 //Virar somente a carta clicada e armazenar ID
-function FazerAcao(item) {
+function virarCarta(item) {
 
     if (item.classList.contains('clicada')) {
         return;
